@@ -1,5 +1,11 @@
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+
+
+
 
 class WrongStudentName extends Exception { }
 class WrongAge extends Exception { }
@@ -7,6 +13,7 @@ class WrongDateOfBirth extends Exception { }
 
 class Main {
     public static Scanner scan = new Scanner(System.in);
+  SimpleDateFormat SDF = new SimpleDateFormat();
 
     public static void main(String[] args) {
         while(true) {
@@ -59,6 +66,9 @@ class Main {
         scan.nextLine();
         System.out.println("Podaj datę urodzenia DD-MM-YYY");
         var date = scan.nextLine();
+      String pattern ="dd-mm-yyyy";
+      Date date1 = SimpleDateFaormat(pattern).parse(date);
+      
       if(date.contains(" "))
         throw new WrongDateOfBirth();
         (new Service()).addStudent(new Student(name, age, date));
